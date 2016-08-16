@@ -1,0 +1,6 @@
+
+function shaft(depth)
+	suc = true
+	while depth > 0 and suc
+end
+
