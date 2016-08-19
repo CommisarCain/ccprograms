@@ -37,19 +37,10 @@ function emptyInventory()
 end
 
 function shortTunnel(length)
-	count = 0
-	while count < length do
-		while turtle.detect() do
-			turtle.dig()
-			os.sleep(0.5)
-		end
-		turtle.forward()
-		turtle.digUp()
-		turtle.digDown()
-		count = count + 1
-	end
-	turtle.turnRight()
-	turtle.turnRight()
+	count = length
+	mvDigFUD(length)
+	tr()
+	tr()
 	turtle.down()
 	turtle.select(1)
 	while count > 0 do
@@ -87,7 +78,7 @@ function cleanMove(tx,ty,tz,rot)
 			turtle.up()
 		end
 	elseif dy < 0 then
-		for i = 1, math.abs(dy) do
+		for i = 1, Math.abs(dy) do
 			turtle.down()
 		end
 	end
@@ -96,14 +87,14 @@ function cleanMove(tx,ty,tz,rot)
 		mvF(dx)
 	elseif dx < 0 then
 		turnTo(3)
-		mvF(math.abs(dx))
+		mvF(Math.abs(dx))
 	end
 	if dz > 0 then
 		turnTo(2)
 		mvF(dz)
 	elseif dz < 0 then
 		turnTo(4)
-		mvF(math.abs(dz))
+		mvF(Math.abs(dz))
 	end
 	
 	turnTo(rot)
@@ -318,7 +309,11 @@ function quarry(l,w,d)
 	
 end
 
+function nav(x, y, z, rot)
 
+	 
+
+end
 
 
 
