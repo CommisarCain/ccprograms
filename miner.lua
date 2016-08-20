@@ -1,5 +1,5 @@
 
-mastrot = getRotation()
+
 droprot = 0
 dropx = 0
 dropy = 0
