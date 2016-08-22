@@ -1,9 +1,4 @@
 
-
-droprot = 0
-dropx = 0
-dropy = 0
-dropz = 0
  
 function shaft(depth)
     turtle.forward()
@@ -73,12 +68,12 @@ function cleanMove(tx,ty,tz,rot)
     local dy = ty - y
     local dz = tz - z
    
-    if dy > 0 then
-        for i = 1, dy do
+    if dz > 0 then
+        for i = 1, dz do
             turtle.up()
         end
-    elseif dy < 0 then
-        for i = 1, Math.abs(dy) do
+    elseif dz < 0 then
+        for i = 1, Math.abs(dz) do
             turtle.down()
         end
     end
@@ -89,12 +84,12 @@ function cleanMove(tx,ty,tz,rot)
         turnTo(3)
         mvF(Math.abs(dx))
     end
-    if dz > 0 then
+    if dy > 0 then
         turnTo(2)
-        mvF(dz)
-    elseif dz < 0 then
+        mvF(dy)
+    elseif dy < 0 then
         turnTo(4)
-        mvF(Math.abs(dz))
+        mvF(Math.abs(dy))
     end
    
     turnTo(rot)
@@ -110,12 +105,15 @@ function cleanMove(tx,ty,tz,rot)
 end
  
 function getRotation()
+
     x,y,z = gps.locate()
     turtle.forward()
     x2,y2,z2 = gps.locate()
+	
+	os.sleep(0.5)
    
     xf = x2 - x
-    zf = z2 - z
+    yf = y2 - y
     turtle.back()
    
     if(xf == 1) then
@@ -124,10 +122,10 @@ function getRotation()
     if(xf == -1) then
         return 3
     end
-    if(zf == 1) then
+    if(yf == 1) then
         return 2
     end
-    if(zf == -1) then
+    if(yf == -1) then
         return 4
     end
    
@@ -135,8 +133,6 @@ function getRotation()
     return 0
  
 end
-
- mastrot = getRotation()
  
 function turnTo(trot, rot)
     rot = rot or mastrot
@@ -312,7 +308,17 @@ function quarry(l,w,d)
 end
  
 function nav(x, y, z, rot)
+--path finding/exploration....Someday
  
      
  
 end
+
+
+droprot = 0
+dropx = 0
+dropy = 0
+dropz = 0
+mastrot = getRotation()
+
+
