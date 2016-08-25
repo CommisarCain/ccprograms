@@ -314,11 +314,24 @@ function nav(x, y, z, rot)
  
 end
 
+function slaveMiner()
+	
+end
+
+function mineNav()
+
+end
+
+function mineInvControl()
+
+end
 
 droprot = 0
 dropx = 0
 dropy = 0
 dropz = 0
 mastrot = getRotation()
+
+
 
 
